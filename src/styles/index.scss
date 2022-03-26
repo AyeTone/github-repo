@@ -1,0 +1,16 @@
+@use "variables";
+@forward "Card.styles";
+
+*,
+*::before,
+*:after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: variables.$text;
+
+  background-color: variables.$bg;
+  font-family: variables.$textFont;
+}
