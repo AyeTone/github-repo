@@ -6,6 +6,7 @@ import CardFooter from "./CardFooter/CardFooter";
 const Card = () => {
   const [userInfo, setUserInfo] = useState([]);
   const username = "ayetone";
+  let name = userInfo.login;
   let date = new Date(`${userInfo.updated_at}`);
   let fullDate = moment(date).format("MMMM D, Y");
 
@@ -25,10 +26,11 @@ const Card = () => {
       <div className="card__container">
         <div className="card__avatar">
           <img src={userInfo.avatar_url} alt={`${username} avatar`} />
+          <h1 className="card__username">{name}</h1>
         </div>
         <div className="card__content">
           <div className="card__content__header">
-            <h1 className="header__username">{userInfo.login}</h1>
+            <h1 className="header__username">{name}</h1>
             <p className="header__active">
               {" "}
               <span>Last active:</span> {fullDate}
