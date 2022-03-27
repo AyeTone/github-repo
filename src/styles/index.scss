@@ -1,16 +1,11 @@
-@use "variables";
-@forward "Card.styles";
+/* Varibles */
+@use "./abstracts/variables";
 
-*,
-*::before,
-*:after {
-  margin: 0;
-  box-sizing: border-box;
-}
+/* Reset */
+@use "./resets/reset";
 
-body {
-  color: variables.$text;
+/* typography */
+@use "./typography/typography";
 
-  background-color: variables.$bg;
-  font-family: variables.$textFont;
-}
+/* components */
+@use "./components/card";

@@ -1,0 +1,66 @@
+@use "../abstracts/variables" as *;
+
+@mixin normalFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  @include normalFlex;
+  width: 100%;
+  height: 100vh;
+
+  &__container {
+    width: 90%;
+    padding: 20px 10px;
+
+    background-color: $card;
+    border-radius: 5px;
+  }
+
+  &__avatar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+
+    img {
+      width: 20%;
+      border-radius: 50%;
+    }
+  }
+}
+
+.card__content {
+  padding: 0 10px;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__header {
+    @include normalFlex;
+    justify-content: space-between;
+
+    .header__username {
+      font-size: $lgFont;
+      font-weight: $semiFW;
+    }
+
+    .header__joined {
+      font-size: $smFont;
+
+      span {
+        margin-right: 5px;
+        font-size: $xsFont;
+        color: $highlight;
+      }
+    }
+  }
+
+  &__body {
+    text-align: center;
+  }
+}

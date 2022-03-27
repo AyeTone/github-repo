@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+/* Colors */
+$bg: #151b2e;
+$card: #202a46;
+$text: #e2e7f3;
+$highlight: #3d5dec;
+
+/* Fonts */
+$textFont: "Montserrat", sans-serif;
+
+$baseFont: 1rem;
+$xsFont: $baseFont * 0.5;
+$smFont: $baseFont * 0.75;
+$lgFont: $baseFont * 1.5;
+$xlFont: $baseFont * 1.75;
+
+$baseFW: 500;
+$thinFW: 300;
+$semiFW: 600;
+$boldFW: 700;
+$xtraFW: 800;
