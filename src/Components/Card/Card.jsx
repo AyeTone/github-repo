@@ -5,8 +5,6 @@ import CardBody from "./CardBody/CardBody";
 const Card = () => {
   const [userInfo, setUserInfo] = useState([]);
   const username = "ayetone";
-  let followers = userInfo.followers;
-  let following = userInfo.following;
   let date = new Date(`${userInfo.updated_at}`);
   let fullDate = moment(date).format("MMMM D, Y");
 
@@ -37,9 +35,9 @@ const Card = () => {
           </div>
           <CardBody
             bio={userInfo.bio}
-            repos={userInfo.pubilc_repos}
-            followers={followers}
-            following={following}
+            repos={userInfo.public_repos}
+            followers={userInfo.followers}
+            following={userInfo.following}
           />
         </div>
       </div>

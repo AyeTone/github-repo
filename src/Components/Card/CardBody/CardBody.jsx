@@ -2,7 +2,7 @@ import React from "react";
 
 const CardBody = ({ bio, repos, followers, following }) => {
   return (
-    <div className="card__content__body">
+    <div className="body">
       <p className="body__bio">{bio}</p>
       <div className="body__stats">
         <p className="body__stats__content">
