@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 import CardBody from "./CardBody/CardBody";
+import CardFooter from "./CardFooter/CardFooter";
 
 const Card = () => {
   const [userInfo, setUserInfo] = useState([]);
@@ -38,6 +39,12 @@ const Card = () => {
             repos={userInfo.public_repos}
             followers={userInfo.followers}
             following={userInfo.following}
+          />
+          <CardFooter
+            github={userInfo.url}
+            location={userInfo.location}
+            twitter={userInfo.twitter_username}
+            blog={userInfo.blog}
           />
         </div>
       </div>
