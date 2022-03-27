@@ -12,7 +12,7 @@ const CardBody = ({ bio, repos, followers, following }) => {
         <p className="body__stats__content">
           Repos: <span>{repos}</span>
         </p>
-        <p className="body__stats__content">
+        <div className="body__stats__content">
           Followers:{" "}
           {followers === 0 ? (
             <p className="shame">
@@ -21,8 +21,8 @@ const CardBody = ({ bio, repos, followers, following }) => {
           ) : (
             <span>{followers}</span>
           )}
-        </p>
-        <p className="body__stats__content">
+        </div>
+        <div className="body__stats__content">
           Following:{" "}
           {followers === 0 ? (
             <p className="shame">
@@ -31,7 +31,7 @@ const CardBody = ({ bio, repos, followers, following }) => {
           ) : (
             <span>{following}</span>
           )}
-        </p>
+        </div>
       </div>
     </div>
   );

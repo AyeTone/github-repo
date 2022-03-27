@@ -7,7 +7,7 @@ const CardFooter = ({ location, twitter, github, blog }) => {
   return (
     <div className="footer">
       <div className="footer__upper">
-        <p className="footer__location">
+        <div className="footer__location">
           {location ? (
             <p>
               {" "}
@@ -19,8 +19,8 @@ const CardFooter = ({ location, twitter, github, blog }) => {
               <GoLocation /> Not Available
             </p>
           )}
-        </p>
-        <p className="footer__twitter">
+        </div>
+        <div className="footer__twitter">
           {twitter ? (
             <p>
               {" "}
@@ -31,10 +31,10 @@ const CardFooter = ({ location, twitter, github, blog }) => {
               <BsTwitter /> Not Available
             </p>
           )}
-        </p>
+        </div>
       </div>
       <div className="footer__lower">
-        <p className="footer__github">
+        <div className="footer__github">
           {github ? (
             <a href={github}>
               <BsGithub /> <span>Github Page</span>{" "}
@@ -44,8 +44,8 @@ const CardFooter = ({ location, twitter, github, blog }) => {
               <BsGithub /> Not Available
             </p>
           )}
-        </p>
-        <p className="footer__blog">
+        </div>
+        <div className="footer__blog">
           {blog ? (
             <a href={blog}>
               {" "}
@@ -57,7 +57,7 @@ const CardFooter = ({ location, twitter, github, blog }) => {
               <MdWeb /> Not Available
             </p>
           )}
-        </p>
+        </div>
       </div>
     </div>
   );
