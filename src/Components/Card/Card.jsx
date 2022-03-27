@@ -1,33 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import moment from "moment";
 import CardBody from "./CardBody/CardBody";
 import CardFooter from "./CardFooter/CardFooter";
+import { UserData } from "../../context/userDataContext";
 
-const Card = () => {
-  const [userInfo, setUserInfo] = useState([]);
-  const username = "ayetone";
-  let name = userInfo.login;
-  let date = new Date(`${userInfo.updated_at}`);
+const Card = ({ username }) => {
+  const { data, setData } = useContext(UserData);
+
+  let name = data.login;
+  let date = new Date(`${data.updated_at}`);
   let fullDate = moment(date).format("MMMM D, Y");
-
-  useEffect(() => {
-    fetch(`https://api.github.com/users/${username}`)
-      .then((res) => res.json())
-      .then((data) => setUserInfo(data));
-  }, []);
-
-  function conso(e) {
-    console.log(e);
-  }
 
   return (
     <div className="card">
-      {/* <button onClick={() => conso(userInfo)}>Console</button> */}
       <div className="card__container">
         <div className="card__avatar">
-          <img src={userInfo.avatar_url} alt={`${username} avatar`} />
+          <img src={data.avatar_url} alt={`${username} avatar`} />
           <h1 className="card__username">
-            {name} <span>aka {userInfo.name}</span>
+            {name} <span>aka {data.name}</span>
           </h1>
         </div>
         <div className="card__content">
@@ -39,16 +29,16 @@ const Card = () => {
             </p>
           </div>
           <CardBody
-            bio={userInfo.bio}
-            repos={userInfo.public_repos}
-            followers={userInfo.followers}
-            following={userInfo.following}
+            bio={data.bio}
+            repos={data.public_repos}
+            followers={data.followers}
+            following={data.following}
           />
           <CardFooter
-            github={userInfo.url}
-            location={userInfo.location}
-            twitter={userInfo.twitter_username}
-            blog={userInfo.blog}
+            github={data.url}
+            location={data.location}
+            twitter={data.twitter_username}
+            blog={data.blog}
           />
         </div>
       </div>

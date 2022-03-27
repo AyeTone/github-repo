@@ -1,17 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./Components/Card/Card";
+import RepoList from "./Components/RepoList/RepoList";
 import SearchBar from "./Components/SearchBar/SearchBar";
+import { UserData } from "./context/userDataContext";
 
 function App() {
+  const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
+  const username = "ayetone";
+
+  useEffect(() => {
+    fetch(`https://api.github.com/users/${username}`)
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
+
   return (
-    <div className="container">
-      <div className="title">
-        <h1>Github Showcase</h1>
+    <UserData.Provider value={{ data, setData }}>
+      <div className="container">
+        <div className="title">
+          <h1>Github Showcase</h1>
+        </div>
+        <SearchBar search={search} setSearch={setSearch} />
+        <RepoList username={username} />
+        <Card uesrname={username} />
       </div>
-      <SearchBar search={search} setSearch={setSearch} />
-      {!search && <Card />}
-    </div>
+    </UserData.Provider>
   );
 }
 
