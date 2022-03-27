@@ -1,0 +1,55 @@
+@use "../abstracts/variables" as *;
+
+.searchbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__form {
+    width: 85%;
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    color: $highlight;
+    font-size: $xlFont;
+  }
+
+  &__input {
+    width: 100%;
+    border-radius: $baseBR;
+    border: none;
+    padding: 12px;
+    padding-left: 50px;
+    background-color: $card;
+    font-family: $textFont;
+    font-size: $baseFont;
+    color: $text;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: $baseBR;
+    background-color: $highlight;
+    font-family: $textFont;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: darken($highlight, 10%);
+      color: $text;
+    }
+  }
+}

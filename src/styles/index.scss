@@ -7,6 +7,10 @@
 /* typography */
 @use "./typography/typography";
 
+/* base */
+@use "./base/base";
+
 /* components */
 @use "./components/card";
 @use "./components/title";
+@use "./components/searchbar";
