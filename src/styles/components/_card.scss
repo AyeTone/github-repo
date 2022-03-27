@@ -15,7 +15,7 @@
 
   &__container {
     width: 85%;
-    padding: 15px;
+    padding: 20px;
 
     background-color: $card;
     border-radius: $baseBR;
@@ -23,7 +23,7 @@
 
   &__avatar {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
     margin-bottom: 20px;
@@ -38,6 +38,11 @@
     font-size: $xxlFont;
     font-weight: $semiFW;
     font-family: $nameFont;
+
+    span {
+      font-size: $smFont;
+      font-family: $statsFont;
+    }
   }
 }
 

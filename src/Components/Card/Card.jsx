@@ -26,7 +26,9 @@ const Card = () => {
       <div className="card__container">
         <div className="card__avatar">
           <img src={userInfo.avatar_url} alt={`${username} avatar`} />
-          <h1 className="card__username">{name}</h1>
+          <h1 className="card__username">
+            {name} <span>aka {userInfo.name}</span>
+          </h1>
         </div>
         <div className="card__content">
           <div className="card__content__header">

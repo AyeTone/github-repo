@@ -14,7 +14,7 @@
   .body__stats {
     background-color: $innerCard;
     border-radius: $baseBR;
-    padding: 15px;
+    padding: 20px;
 
     display: flex;
     flex-direction: column;
@@ -26,15 +26,16 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
+      font-size: $lgFont;
 
       .shame {
-        font-size: $xsFont;
+        font-size: $smFont;
       }
 
       span {
         margin-left: 5px;
         font-weight: $boldFW;
-        font-size: $baseFont;
+        font-size: $lgFont;
       }
     }
   }
