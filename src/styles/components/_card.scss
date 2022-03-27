@@ -23,8 +23,9 @@
 
   &__avatar {
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: center;
+    gap: 30px;
     width: 100%;
     margin-bottom: 20px;
 
