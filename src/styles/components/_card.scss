@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as *;
 @use "./cardBody";
+@use "./cardFooter";
 
 @mixin normalFlex {
   display: flex;

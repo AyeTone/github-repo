@@ -4,6 +4,10 @@
   .body__bio {
     text-align: center;
     margin-bottom: 20px;
+
+    &__none {
+      color: $null;
+    }
   }
 
   .body__stats {

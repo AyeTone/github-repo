@@ -1,0 +1,24 @@
+@use "../abstracts/variables" as *;
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer {
+  @include flexColumn;
+  margin-top: 10px;
+
+  &__upper {
+    @include flexColumn;
+  }
+
+  &__lower {
+    @include flexColumn;
+  }
+
+  .null {
+    color: $null;
+  }
+}
