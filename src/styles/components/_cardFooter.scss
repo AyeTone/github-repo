@@ -16,6 +16,33 @@
 
   &__lower {
     @include flexColumn;
+
+    a {
+      transition: 0.5s;
+
+      &:hover {
+        color: $highlight;
+      }
+
+      span {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 1px;
+          left: 1px;
+          bottom: -1px;
+          background-color: $highlight;
+          transition: all 0.2s;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+      }
+    }
   }
 
   .null {

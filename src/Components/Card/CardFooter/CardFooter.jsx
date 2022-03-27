@@ -22,10 +22,10 @@ const CardFooter = ({ location, twitter, github, blog }) => {
         </p>
         <p className="footer__twitter">
           {twitter ? (
-            <a href={twitter}>
+            <p>
               {" "}
-              <BsTwitter /> Github Page{" "}
-            </a>
+              <BsTwitter /> {twitter}{" "}
+            </p>
           ) : (
             <p className="null">
               <BsTwitter /> Not Available
@@ -37,7 +37,7 @@ const CardFooter = ({ location, twitter, github, blog }) => {
         <p className="footer__github">
           {github ? (
             <a href={github}>
-              <BsGithub /> Github Page{" "}
+              <BsGithub /> <span>Github Page</span>{" "}
             </a>
           ) : (
             <p className="null">
@@ -49,7 +49,7 @@ const CardFooter = ({ location, twitter, github, blog }) => {
           {blog ? (
             <a href={blog}>
               {" "}
-              <MdWeb /> Personal Site{" "}
+              <MdWeb /> <span>Personal Site</span>{" "}
             </a>
           ) : (
             <p className="null">
