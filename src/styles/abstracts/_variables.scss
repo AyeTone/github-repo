@@ -1,15 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@300;400;500;600;700&family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&family=VT323&display=swap");
 /* Colors */
 $bg: #151b2e;
 $card: #202a46;
-$text: #e2e7f3;
-$null: #afafafb6;
+$text: #dddddd;
+$null: #9e9e9eb6;
 $highlight: #00ffdd;
 $innerCard: #161b2e;
 
 /* Fonts */
 $textFont: "Montserrat", sans-serif;
-$nameFont: "Roboto Mono", monospace;
+$headerFont: "Roboto", sans-serif;
 $statsFont: "VT323", monospace;
 
 $baseFont: 1rem;
