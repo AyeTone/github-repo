@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
+import CardBody from "./CardBody/CardBody";
 
 const Card = () => {
-  const username = "ayetone";
-
   const [userInfo, setUserInfo] = useState([]);
+  const username = "ayetone";
+  let followers = userInfo.followers;
+  let following = userInfo.following;
+  let date = new Date(`${userInfo.updated_at}`);
+  let fullDate = moment(date).format("MMMM D, Y");
 
   useEffect(() => {
     fetch(`https://api.github.com/users/${username}`)
@@ -16,9 +20,6 @@ const Card = () => {
     console.log(e);
   }
 
-  let date = new Date(`${userInfo.updated_at}`);
-  let fullDate = moment(date).format("MMMM D, Y");
-
   return (
     <div className="card">
       {/* <button onClick={() => conso(userInfo)}>Console</button> */}
@@ -29,14 +30,17 @@ const Card = () => {
         <div className="card__content">
           <div className="card__content__header">
             <h1 className="header__username">{userInfo.login}</h1>
-            <p className="header__joined">
+            <p className="header__active">
               {" "}
               <span>Last active:</span> {fullDate}
             </p>
           </div>
-          <div className="card__content__body">
-            <p>{userInfo.bio}</p>
-          </div>
+          <CardBody
+            bio={userInfo.bio}
+            repos={userInfo.pubilc_repos}
+            followers={followers}
+            following={following}
+          />
         </div>
       </div>
     </div>
