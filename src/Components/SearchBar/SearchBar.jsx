@@ -4,17 +4,17 @@ import { TiSocialGithubCircular } from "react-icons/ti";
 import { UserData } from "../../context/userDataContext";
 import SearchRepo from "./SearchRepo/SearchRepo";
 
-function useDelayUnmount(isMounted, delayTime) {
+function useDelayUnmount(e, delayTime) {
   const [showDiv, setShowDiv] = useState(false);
   useEffect(() => {
     let timeoutId;
-    if (isMounted && !showDiv) {
+    if (e && !showDiv) {
       setShowDiv(true);
-    } else if (!isMounted && showDiv) {
+    } else if (!e && showDiv) {
       timeoutId = setTimeout(() => setShowDiv(false), delayTime);
     }
     return () => clearTimeout(timeoutId);
-  }, [isMounted, delayTime, showDiv]);
+  }, [e, delayTime, showDiv]);
   return showDiv;
 }
 
@@ -31,9 +31,9 @@ const SearchBar = () => {
       <>
         {!showRepoSearch && (
           <>
-            <TiSocialGithubCircular className="searchbar__unmounted__user" />
+            <TiSocialGithubCircular className="searchbar__userSearch" />
             <BiSearchAlt
-              className="searchbar__unmounted"
+              className="searchbar__repoSearch"
               onClick={() => toggleMounted()}
             />
           </>

@@ -10,6 +10,9 @@
 /* base */
 @use "./base/base";
 
+/* animations */
+@use "./abstracts/animations";
+
 /* components */
 @use "./components/repolist";
 @use "./components/card/card";

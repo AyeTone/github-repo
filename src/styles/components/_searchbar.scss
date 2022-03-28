@@ -2,6 +2,18 @@
 @use "../abstracts/variables" as *;
 @use "../util/breakpoints" as *;
 
+@mixin searchIcons {
+  position: absolute;
+  color: darken($highlight, 20%);
+  font-size: $xlFont;
+  transition: 0.25s;
+  cursor: pointer;
+  animation: fadeIn 450ms ease-in;
+  &:hover {
+    color: $highlight;
+  }
+}
+
 .searchbar {
   margin: 0 auto;
   position: relative;
@@ -14,24 +26,14 @@
     margin-top: 40px;
   }
 
-  &__unmounted {
-    position: absolute;
+  &__userSearch {
+    @include searchIcons;
+    left: 0;
+  }
+
+  &__repoSearch {
+    @include searchIcons;
     right: 0;
-    color: darken($highlight, 20%);
-    font-size: $xlFont;
-    transition: 0.25s;
-    cursor: pointer;
-    animation: fadeIn 450ms ease-in;
-
-    &::after {
-      content: "Click to Search";
-      position: absolute;
-      top: 0;
-    }
-
-    &:hover {
-      color: $highlight;
-    }
   }
 
   &__form {
