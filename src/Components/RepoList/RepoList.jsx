@@ -21,15 +21,12 @@ const RepoList = ({ username }) => {
         return repo;
       }
     })
-    .map((repo, id) => {
-      let repoName = repo.name;
-
-      if (repoName) {
-        return <li key={id}> {repoName} </li>;
-      } else if (search !== repoName) {
-        return <li key={id}>The droids you are looking for are not here 👋</li>;
-      }
-    });
+    .map((repo, id) => (
+      <li key={id}>
+        {" "}
+        <a href={repo.html_url}> {repo.name} </a>
+      </li>
+    ));
 
   return (
     <div className="repolist">
