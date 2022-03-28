@@ -5,7 +5,7 @@ import CardFooter from "./CardFooter/CardFooter";
 import { UserData } from "../../context/userDataContext";
 
 const Card = ({ username }) => {
-  const { data, setData } = useContext(UserData);
+  const { data } = useContext(UserData);
 
   let name = data.login;
   let date = new Date(`${data.updated_at}`);

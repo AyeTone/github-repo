@@ -7,6 +7,7 @@ import { UserData } from "./context/userDataContext";
 function App() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
+  const [isMounted, setIsMounted] = useState(false);
   const username = "ayetone";
 
   useEffect(() => {
@@ -16,14 +17,19 @@ function App() {
   }, []);
 
   return (
-    <UserData.Provider value={{ data, setData, search, setSearch }}>
+    <UserData.Provider
+      value={{ data, setData, search, setSearch, isMounted, setIsMounted }}
+    >
       <div className="container">
         <div className="title">
           <h1>Github Showcase</h1>
         </div>
         <SearchBar search={search} setSearch={setSearch} />
-        <RepoList username={username} />
-        <Card uesrname={username} />
+        {isMounted ? (
+          <RepoList username={username} />
+        ) : (
+          <Card uesrname={username} />
+        )}
       </div>
     </UserData.Provider>
   );
