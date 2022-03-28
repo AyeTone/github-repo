@@ -14,8 +14,10 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  opacity: 0;
   overflow: hidden;
-  animation: card 3s;
+  animation: card 2s forwards;
+  animation-delay: 2s;
 
   &__container {
     width: 100%;

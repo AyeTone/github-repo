@@ -10,9 +10,9 @@ const SearchRepo = () => {
     setIsMounted(!isMounted);
   }
 
-  const mountedStyle = { animation: "animeIn 450ms ease-in" };
+  const mountedStyle = { animation: "animeIn 1900ms " };
   const unmountedStyle = {
-    animation: "animeOut 470ms ease-out",
+    animation: "animeOut 2000ms",
     animationFillMode: "forwards",
   };
 

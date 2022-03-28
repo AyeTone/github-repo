@@ -20,7 +20,7 @@ function useDelayUnmount(e, delayTime) {
 
 const SearchBar = () => {
   const { isMounted, setIsMounted } = useContext(UserData);
-  const showRepoSearch = useDelayUnmount(isMounted, 450);
+  const showRepoSearch = useDelayUnmount(isMounted, 2000);
 
   function toggleMounted() {
     setIsMounted(!isMounted);
