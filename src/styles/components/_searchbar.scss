@@ -7,9 +7,12 @@
   align-items: center;
 
   &__unmounted {
+    position: absolute;
+    right: 10%;
     color: darken($highlight, 20%);
     font-size: $xlFont;
     transition: 0.25s;
+    cursor: pointer;
 
     &:hover {
       color: $highlight;
@@ -27,6 +30,11 @@
     left: 10px;
     color: $highlight;
     font-size: $xlFont;
+    cursor: pointer;
+
+    &:hover {
+      color: darken($highlight, 20%);
+    }
   }
 
   &__input {

@@ -5,13 +5,23 @@ import { UserData } from "../../context/userDataContext";
 const SearchBar = ({ search, setSearch }) => {
   const { isMounted, setIsMounted } = useContext(UserData);
 
+  function toggleMounted() {
+    setIsMounted(!isMounted);
+  }
+
   return (
     <div className="searchbar">
       {!isMounted ? (
-        <BiSearchAlt className="searchbar__unmounted" />
+        <BiSearchAlt
+          className="searchbar__unmounted"
+          onClick={() => toggleMounted()}
+        />
       ) : (
         <form className="searchbar__form">
-          <BiSearchAlt className="searchbar__icon" />
+          <BiSearchAlt
+            className="searchbar__icon"
+            onClick={() => toggleMounted()}
+          />
           <input
             value={search}
             type="text"
