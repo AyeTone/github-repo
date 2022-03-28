@@ -28,3 +28,16 @@ $xtraFW: 800;
 /* borders */
 $baseBR: 5px;
 $circle: 50%;
+
+/* underline */
+
+@mixin underline {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  left: 1px;
+  bottom: -1px;
+  background-color: $highlight;
+  transition: all 0.2s;
+}

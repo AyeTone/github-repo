@@ -11,6 +11,7 @@
 @use "./base/base";
 
 /* components */
+@use "./components/repolist";
 @use "./components/card/card";
 @use "./components/title";
 @use "./components/searchbar";

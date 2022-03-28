@@ -1,1 +1,72 @@
 @use "../abstracts/variables" as *;
+
+.repolist {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  max-height: 500px;
+  overflow: hidden;
+
+  &__container {
+    padding: 10px;
+    width: 84%;
+    background-color: $card;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: $baseBR;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      background-color: $card;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $highlight;
+      border-radius: $baseBR;
+
+      &:hover {
+        background-color: darken($highlight, 10%);
+      }
+    }
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px 1px;
+      margin: 5px;
+
+      border-radius: $baseBR;
+      background-color: $innerCard;
+      text-transform: capitalize;
+
+      list-style: none;
+      transition: 0.25s;
+
+      &:hover {
+        background-color: darken($innerCard, 10%);
+      }
+      a {
+        cursor: pointer;
+        position: relative;
+        transition: 0.5s;
+
+        &:hover {
+          color: $highlight;
+        }
+        &::after {
+          @include underline;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
