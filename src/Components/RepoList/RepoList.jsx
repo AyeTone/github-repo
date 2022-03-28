@@ -3,7 +3,7 @@ import { UserData } from "../../context/userDataContext";
 
 const RepoList = ({ username }) => {
   const [repos, setRepos] = useState([]);
-  const { search } = useContext(UserData);
+  const { searchRepo } = useContext(UserData);
 
   useEffect(() => {
     fetch(
@@ -15,9 +15,9 @@ const RepoList = ({ username }) => {
 
   let filteredRepos = repos
     .filter((repo) => {
-      if (search == "") {
+      if (searchRepo == "") {
         return repo;
-      } else if (repo.name.toLowerCase().includes(search.toLowerCase())) {
+      } else if (repo.name.toLowerCase().includes(searchRepo.toLowerCase())) {
         return repo;
       }
     })
