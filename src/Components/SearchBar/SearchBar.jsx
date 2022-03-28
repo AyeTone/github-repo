@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { BiSearchAlt } from "react-icons/bi";
+import { TiSocialGithubCircular } from "react-icons/ti";
 import { UserData } from "../../context/userDataContext";
+import SearchRepo from "./SearchRepo/SearchRepo";
 
 function useDelayUnmount(isMounted, delayTime) {
   const [showDiv, setShowDiv] = useState(false);
@@ -18,13 +20,7 @@ function useDelayUnmount(isMounted, delayTime) {
 
 const SearchBar = ({ search, setSearch }) => {
   const { isMounted, setIsMounted } = useContext(UserData);
-  const showDiv = useDelayUnmount(isMounted, 450);
-  const mountedStyle = { animation: "animeIn 450ms ease-in" };
-  const unmountedStyle = {
-    animation: "animeOut 470ms ease-out",
-    animationFillMode: "forwards",
-  };
-  const fadeIn = { animation: "fadeIn 450ms ease-in" };
+  const showRepoSearch = useDelayUnmount(isMounted, 450);
 
   function toggleMounted() {
     setIsMounted(!isMounted);
@@ -33,36 +29,17 @@ const SearchBar = ({ search, setSearch }) => {
   return (
     <div className="searchbar">
       <>
-        {!showDiv && (
+        {!showRepoSearch && (
           <>
+            <TiSocialGithubCircular className="searchbar__unmounted__user" />
             <BiSearchAlt
-              style={!isMounted ? fadeIn : null}
               className="searchbar__unmounted"
               onClick={() => toggleMounted()}
             />
           </>
         )}
       </>
-      <>
-        {showDiv && (
-          <form
-            style={isMounted ? mountedStyle : unmountedStyle}
-            className="searchbar__form"
-          >
-            <BiSearchAlt
-              className="searchbar__icon"
-              onClick={() => toggleMounted()}
-            />
-            <input
-              value={search}
-              type="text"
-              className="searchbar__input"
-              placeholder="Search for a repo..."
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </form>
-        )}
-      </>
+      <>{showRepoSearch && <SearchRepo />}</>
     </div>
   );
 };
