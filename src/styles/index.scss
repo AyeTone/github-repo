@@ -15,3 +15,6 @@
 @use "./components/card/card";
 @use "./components/title";
 @use "./components/searchbar";
+
+/* Utils */
+@use "./util/breakpoints";

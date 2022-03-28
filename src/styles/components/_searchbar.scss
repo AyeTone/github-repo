@@ -2,14 +2,14 @@
 @use "../abstracts/animations";
 
 .searchbar {
-  width: 100%;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 
   &__unmounted {
     position: absolute;
-    right: 10%;
+    right: 0;
     color: darken($highlight, 20%);
     font-size: $xlFont;
     transition: 0.25s;
@@ -27,7 +27,7 @@
   }
 
   &__form {
-    width: 85%;
+    width: 100%;
     position: relative;
     transition: 1s;
   }

@@ -1,24 +1,29 @@
 @use "../../abstracts/variables" as *;
+@use "../../util/breakpoints" as *;
 @use "./cardBody";
 @use "./cardFooter";
 
-@mixin normalFlex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@mixin aka {
+  margin-left: 5px;
+  font-size: $smFont;
+  font-family: $statsFont;
+  color: $highlight;
 }
 
 .card {
-  @include normalFlex;
-  width: 100%;
   margin-top: 20px;
 
   &__container {
-    width: 85%;
+    width: 100%;
     padding: 20px;
 
     background-color: $card;
     border-radius: $baseBR;
+
+    @include breakpoint(tablet) {
+      display: flex;
+      padding: 30px;
+    }
   }
 
   &__avatar {
@@ -32,6 +37,15 @@
     img {
       width: 20%;
       border-radius: $circle;
+      @include breakpoint(tablet) {
+        width: 80%;
+      }
+    }
+
+    @include breakpoint(tablet) {
+      display: unset;
+      margin: unset;
+      width: 25%;
     }
   }
 
@@ -41,10 +55,11 @@
     font-family: $headerFont;
 
     span {
-      margin-left: 5px;
-      font-size: $smFont;
-      font-family: $statsFont;
-      color: $highlight;
+      @include aka;
+    }
+
+    @include breakpoint(tablet) {
+      display: none;
     }
   }
 }
@@ -57,14 +72,25 @@
   flex-direction: column;
   gap: 20px;
 
+  @include breakpoint(tablet) {
+  }
+
   &__header {
-    @include normalFlex;
-    justify-content: space-between;
     display: none;
+
+    @include breakpoint(tablet) {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
 
     .header__username {
       font-size: $lgFont;
       font-weight: $semiFW;
+
+      span {
+        @include aka;
+      }
     }
 
     .header__active {
@@ -73,6 +99,7 @@
       span {
         margin-right: 5px;
         font-size: $xsFont;
+        font-family: $statsFont;
         color: $highlight;
       }
     }

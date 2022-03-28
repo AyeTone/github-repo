@@ -22,7 +22,9 @@ const Card = ({ username }) => {
         </div>
         <div className="card__content">
           <div className="card__content__header">
-            <h1 className="header__username">{name}</h1>
+            <h1 className="header__username">
+              {name} <span>aka {data.name}</span>
+            </h1>
             <p className="header__active">
               {" "}
               <span>Last active:</span> {fullDate}

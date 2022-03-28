@@ -8,7 +8,7 @@ function App() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   const [isMounted, setIsMounted] = useState(false);
-  const username = "ayetone";
+  const [username, setUsername] = useState("Ayetone");
 
   useEffect(() => {
     fetch(`https://api.github.com/users/${username}`)
