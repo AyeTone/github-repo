@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/animations";
 
 .searchbar {
   width: 100%;
@@ -14,6 +15,12 @@
     transition: 0.25s;
     cursor: pointer;
 
+    &::after {
+      content: "Click to Search";
+      position: absolute;
+      top: 0;
+    }
+
     &:hover {
       color: $highlight;
     }
@@ -22,6 +29,7 @@
   &__form {
     width: 85%;
     position: relative;
+    transition: 1s;
   }
 
   &__icon {
