@@ -1,4 +1,5 @@
 @use "../../abstracts/variables" as *;
+@use "../../util/breakpoints" as *;
 
 .body {
   margin: 10px 0;
@@ -23,11 +24,26 @@
 
     font-family: $statsFont;
 
+    @include breakpoint(tablet) {
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+
     &__content {
       width: 100%;
       display: flex;
       justify-content: space-between;
-      font-size: $lgFont;
+
+      @include breakpoint(tablet) {
+      }
+
+      p {
+        font-size: $lgFont;
+
+        @include breakpoint(tablet) {
+          font-size: $lgFont;
+        }
+      }
 
       .shame {
         font-size: $smFont;
@@ -37,6 +53,11 @@
         margin-left: 5px;
         font-weight: $boldFW;
         font-size: $lgFont;
+      }
+
+      @include breakpoint(tablet) {
+        flex-direction: column;
+        gap: 20px;
       }
     }
   }

@@ -9,21 +9,29 @@ const CardBody = ({ bio, repos, followers, following }) => {
         <p className="body__bio__none">👨‍💻This Profile has no bio...💁‍♂️</p>
       )}
       <div className="body__stats">
-        <p className="body__stats__content">
-          Repos: <span>{repos}</span>
-        </p>
         <div className="body__stats__content">
-          Followers:{" "}
+          <p>Repos </p>
+          {repos === 0 ? (
+            <p className="shame">
+              Newbie?
+              <span>0</span>
+            </p>
+          ) : (
+            <span>{repos}</span>
+          )}
+        </div>
+        <div className="body__stats__content">
+          <p>Followers </p>
           {followers === 0 ? (
             <p className="shame">
-              Shameful <span>0</span>
+              Madienless <span>0</span>
             </p>
           ) : (
             <span>{followers}</span>
           )}
         </div>
         <div className="body__stats__content">
-          Following:{" "}
+          <p>Following </p>
           {followers === 0 ? (
             <p className="shame">
               Shameless <span>0</span>
