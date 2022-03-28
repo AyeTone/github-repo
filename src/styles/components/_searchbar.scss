@@ -1,11 +1,16 @@
 @use "../abstracts/variables" as *;
-@use "../abstracts/animations";
+@use "../util/breakpoints" as *;
 
 .searchbar {
+  margin: 0 auto;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include breakpoint(tablet) {
+    max-width: $tabletMW;
+  }
 
   &__unmounted {
     position: absolute;

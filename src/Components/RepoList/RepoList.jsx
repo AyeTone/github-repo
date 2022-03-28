@@ -22,10 +22,9 @@ const RepoList = ({ username }) => {
       }
     })
     .map((repo, id) => (
-      <li key={id}>
-        {" "}
-        <a href={repo.html_url}> {repo.name} </a>
-      </li>
+      <a key={id} href={repo.html_url}>
+        <span>{repo.name}</span>
+      </a>
     ));
 
   return (

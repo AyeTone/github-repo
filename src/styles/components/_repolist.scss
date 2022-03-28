@@ -4,9 +4,14 @@
 .repolist {
   display: flex;
   justify-content: center;
+  margin: 0 auto;
   margin-top: 20px;
   max-height: 500px;
   overflow: hidden;
+
+  @include breakpoint(tablet) {
+    max-width: $tabletMW;
+  }
 
   &__container {
     padding: 10px;
@@ -17,6 +22,7 @@
     border-radius: $baseBR;
 
     display: grid;
+    gap: 10px;
 
     @include breakpoint(tablet) {
       grid-template-columns: 1fr 1fr;
@@ -36,38 +42,30 @@
       }
     }
 
-    li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    a {
       text-align: center;
-      padding: 30px 1px;
-      margin: 5px;
+      padding: 20px 0;
+      cursor: pointer;
 
-      border-radius: $baseBR;
+      transition: 0.5s;
       background-color: $innerCard;
-      text-transform: capitalize;
 
-      list-style: none;
-      transition: 0.25s;
+      span {
+        transition: 0.5s;
+        position: relative;
+      }
+      span::after {
+        @include underline;
+      }
 
       &:hover {
         background-color: darken($innerCard, 10%);
-      }
-      a {
-        cursor: pointer;
-        position: relative;
-        transition: 0.5s;
 
-        &:hover {
+        span {
           color: $highlight;
-        }
-        &::after {
-          @include underline;
-        }
-
-        &:hover::after {
-          width: 100%;
+          &::after {
+            width: 100%;
+          }
         }
       }
     }

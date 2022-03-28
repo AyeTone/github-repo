@@ -11,6 +11,8 @@
 }
 
 .card {
+  display: flex;
+  justify-content: center;
   margin-top: 20px;
 
   &__container {
@@ -21,6 +23,7 @@
     border-radius: $baseBR;
 
     @include breakpoint(tablet) {
+      max-width: 640px;
       display: flex;
       padding: 30px;
     }
@@ -39,6 +42,9 @@
       border-radius: $circle;
       @include breakpoint(tablet) {
         width: 80%;
+      }
+      @include breakpoint(desktop) {
+        width: 60%;
       }
     }
 
