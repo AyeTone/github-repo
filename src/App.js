@@ -6,7 +6,7 @@ import { UserData } from "./context/userDataContext";
 
 function App() {
   const [data, setData] = useState([]);
-  const [search, setSearch] = useState("");
+  const [searchRepo, setSearchRepo] = useState("");
   const [isMounted, setIsMounted] = useState(false);
   const [username, setUsername] = useState("Ayetone");
 
@@ -18,13 +18,20 @@ function App() {
 
   return (
     <UserData.Provider
-      value={{ data, setData, search, setSearch, isMounted, setIsMounted }}
+      value={{
+        data,
+        setData,
+        searchRepo,
+        setSearchRepo,
+        isMounted,
+        setIsMounted,
+      }}
     >
       <div className="container">
         <div className="title">
           <h1>Github Showcase</h1>
         </div>
-        <SearchBar search={search} setSearch={setSearch} />
+        <SearchBar />
         {isMounted ? (
           <RepoList username={username} />
         ) : (

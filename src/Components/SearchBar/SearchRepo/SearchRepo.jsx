@@ -3,7 +3,8 @@ import { BiSearchAlt } from "react-icons/bi";
 import { UserData } from "../../../context/userDataContext";
 
 const SearchRepo = () => {
-  const { isMounted, setIsMounted, search, setSearch } = useContext(UserData);
+  const { isMounted, setIsMounted, searchRepo, setSearchRepo } =
+    useContext(UserData);
 
   function toggleMounted() {
     setIsMounted(!isMounted);
@@ -25,11 +26,11 @@ const SearchRepo = () => {
         onClick={() => toggleMounted()}
       />
       <input
-        value={search}
+        value={searchRepo}
         type="text"
         className="searchbar__input"
         placeholder="Search for a repo..."
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={(e) => setSearchRepo(e.target.value)}
       />
     </form>
   );
