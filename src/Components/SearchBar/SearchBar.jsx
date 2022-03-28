@@ -13,10 +13,10 @@ const SearchBar = ({ search, setSearch }) => {
           placeholder="Search for a repo..."
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button type="submit" className="searchbar__button">
+        {/* <button type="submit" className="searchbar__button">
           {" "}
           Search
-        </button>
+        </button> */}
       </form>
     </div>
   );

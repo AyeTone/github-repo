@@ -21,18 +21,33 @@ const RepoList = ({ username }) => {
         return repo;
       }
     })
-    .map((repo, id) => (
-      <li key={id}>
-        {" "}
-        <a href={repo.html_url} target="_blank">
-          {repo.name}
-        </a>
-      </li>
-    ));
+    .map((repo, id) => {
+      let repoName = repo.name;
+
+      if (repoName) {
+        return <li key={id}> {repoName} </li>;
+      } else if (search !== repoName) {
+        return <li key={id}>The droids you are looking for are not here 👋</li>;
+      }
+    });
 
   return (
     <div className="repolist">
-      <div className="repolist__container">{filteredRepos}</div>
+      <div className="repolist__container">
+        {filteredRepos.length ? (
+          [filteredRepos]
+        ) : (
+          <div className="repolist__container__empty">
+            <p>The droids you are looking for are not here.</p>
+            <iframe
+              title="no droids"
+              src="https://giphy.com/embed/l2JJKs3I69qfaQleE"
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
