@@ -16,7 +16,7 @@ function App() {
   }, []);
 
   return (
-    <UserData.Provider value={{ data, setData }}>
+    <UserData.Provider value={{ data, setData, search, setSearch }}>
       <div className="container">
         <div className="title">
           <h1>Github Showcase</h1>
