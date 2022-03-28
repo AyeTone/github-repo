@@ -10,6 +10,7 @@
 
   @include breakpoint(tablet) {
     max-width: $tabletMW;
+    margin-top: 40px;
   }
 
   &__unmounted {

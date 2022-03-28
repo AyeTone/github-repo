@@ -1,6 +1,6 @@
 @use "../abstracts/variables" as *;
 @use "../util/breakpoints" as *;
-@use "../abstracts/animations";
+@use "../abstracts/animations" as *;
 
 .repolist {
   display: flex;

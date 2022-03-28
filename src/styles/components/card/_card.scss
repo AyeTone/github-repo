@@ -37,21 +37,18 @@
     width: 100%;
     margin-bottom: 20px;
 
+    @include breakpoint(tablet) {
+      display: unset;
+      margin: unset;
+      width: 20%;
+    }
+
     img {
       width: 20%;
       border-radius: $circle;
       @include breakpoint(tablet) {
         width: 80%;
       }
-      @include breakpoint(desktop) {
-        width: 60%;
-      }
-    }
-
-    @include breakpoint(tablet) {
-      display: unset;
-      margin: unset;
-      width: 25%;
     }
   }
 
