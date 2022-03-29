@@ -3,19 +3,30 @@ import moment from "moment";
 import CardBody from "./CardBody/CardBody";
 import CardFooter from "./CardFooter/CardFooter";
 import { UserData } from "../../context/userDataContext";
+import { useDelayUserReload } from "../SearchBar/DelayUnmount";
 
 const Card = () => {
-  const { data, username } = useContext(UserData);
+  const { data, username, userReload, setUserReload } = useContext(UserData);
 
   let name = data.login;
   let date = new Date(`${data.created_at}`);
   let fullDate = moment(date).format("MMMM D, Y");
-
   const govName = data.name;
+
+  const reloadUser = useDelayUserReload(userReload, 0);
+
+  /* animation swap */
+  const reloadOne = { animation: "cardReload 1.9s" };
+  const reloadTwo = {
+    animation: "cardReloadTwo 2s",
+  };
 
   return (
     <div className="card">
-      <div className="card__container">
+      <div
+        style={reloadUser ? reloadOne : reloadTwo}
+        className="card__container"
+      >
         {data.login ? (
           <>
             <div className="card__avatar">

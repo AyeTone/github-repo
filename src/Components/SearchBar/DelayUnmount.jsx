@@ -29,3 +29,18 @@ export function useDelayUserUnmount(userSearch, delayTime) {
   }, [userSearch, delayTime, showSearch]);
   return showSearch;
 }
+
+/* Delay User Reload */
+export function useDelayUserReload(e, delayTime) {
+  const [showDiv, setShowDiv] = useState(false);
+  useEffect(() => {
+    let timeoutId;
+    if (e && !showDiv) {
+      setShowDiv(true);
+    } else if (!e && showDiv) {
+      timeoutId = setTimeout(() => setShowDiv(false), delayTime);
+    }
+    return () => clearTimeout(timeoutId);
+  }, [e, delayTime, showDiv]);
+  return showDiv;
+}

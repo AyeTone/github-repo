@@ -7,6 +7,7 @@ const SearchUser = () => {
   const { userSearchMounted, setUserSearchMounted, setUsername } =
     useContext(UserData);
 
+  /* animation swap */
   const mountedStyle = { animation: "userIn 1.9s " };
   const unmountedStyle = {
     animation: "userOut 2s",

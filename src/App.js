@@ -10,11 +10,13 @@ function App() {
   const [username, setUsername] = useState("Ayetone");
   const [repoSearchMounted, setRepoSearchMounted] = useState(false);
   const [userSearchMounted, setUserSearchMounted] = useState(false);
+  const [userReload, setUserReload] = useState(false);
 
   useEffect(() => {
     fetch(`https://api.github.com/users/${username}`)
       .then((res) => res.json())
       .then((data) => setData(data));
+    setUserReload(!userReload);
   }, [username]);
 
   return (
@@ -30,6 +32,8 @@ function App() {
         setRepoSearchMounted,
         userSearchMounted,
         setUserSearchMounted,
+        userReload,
+        setUserReload,
       }}
     >
       <div className="container">
