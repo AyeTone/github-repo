@@ -2,12 +2,14 @@ import React, { useContext, useState, useEffect } from "react";
 import { UserData } from "../../../context/userDataContext";
 import { TiSocialGithubCircular } from "react-icons/ti";
 
-const SearchUser = ({ showUserSearch, setShowUserSearch }) => {
+const SearchUser = () => {
+  const { userSearchMounted, setUserSearchMounted } = useContext(UserData);
+
   return (
     <form className="searchbar__form">
       <TiSocialGithubCircular
         className="searchbar__icon"
-        onClick={() => setShowUserSearch(!showUserSearch)}
+        onClick={() => setUserSearchMounted(!userSearchMounted)}
       />
       <input
         type="text"

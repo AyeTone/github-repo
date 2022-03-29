@@ -9,7 +9,7 @@ function App() {
   const [searchRepo, setSearchRepo] = useState("");
   const [repoSearchMounted, setRepoSearchMounted] = useState(false);
   const [username, setUsername] = useState("Ayetone");
-  const [showUserSearch, setShowUserSearch] = useState(false);
+  const [userSearchMounted, setUserSearchMounted] = useState(false);
 
   useEffect(() => {
     fetch(`https://api.github.com/users/${username}`)
@@ -26,8 +26,8 @@ function App() {
         setSearchRepo,
         repoSearchMounted,
         setRepoSearchMounted,
-        showUserSearch,
-        setShowUserSearch,
+        userSearchMounted,
+        setUserSearchMounted,
       }}
     >
       <div className="container">

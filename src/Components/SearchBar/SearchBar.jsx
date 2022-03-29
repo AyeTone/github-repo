@@ -4,16 +4,18 @@ import { TiSocialGithubCircular } from "react-icons/ti";
 import { UserData } from "../../context/userDataContext";
 import SearchRepo from "./SearchRepo/SearchRepo";
 import SearchUser from "./SearchUser/SearchUser";
-import { useDelayRepoUnmount } from "./DelayUnmount";
+import { useDelayRepoUnmount, useDelayUserUnmount } from "./DelayUnmount";
 
 const SearchBar = () => {
   const {
     repoSearchMounted,
     setRepoSearchMounted,
-    showUserSearch,
-    setShowUserSearch,
+    userSearchMounted,
+    setUserSearchMounted,
   } = useContext(UserData);
+
   const showRepoSearch = useDelayRepoUnmount(repoSearchMounted, 2000);
+  const showUserSearch = useDelayUserUnmount(userSearchMounted, 2000);
 
   return (
     <div className="searchbar">
@@ -22,7 +24,7 @@ const SearchBar = () => {
           <>
             <TiSocialGithubCircular
               className="searchbar__userSearch"
-              onClick={() => setShowUserSearch(!showUserSearch)}
+              onClick={() => setUserSearchMounted(!userSearchMounted)}
             />
             <BiSearchAlt
               className="searchbar__repoSearch"
@@ -32,14 +34,7 @@ const SearchBar = () => {
         )}
       </>
       <>{showRepoSearch && <SearchRepo />}</>
-      <>
-        {showUserSearch && (
-          <SearchUser
-            showUserSearch={showUserSearch}
-            setShowUserSearch={setShowUserSearch}
-          />
-        )}
-      </>
+      <>{showUserSearch && <SearchUser />}</>
     </div>
   );
 };
