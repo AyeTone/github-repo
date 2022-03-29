@@ -15,7 +15,7 @@
     width: 100%;
   }
   100% {
-    transform: rotate(0.1turn);
+    transform: rotate(0.1turn) translateY(30px);
     opacity: 0;
     width: 0;
   }
