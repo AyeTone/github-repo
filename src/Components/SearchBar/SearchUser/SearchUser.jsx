@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { UserData } from "../../../context/userDataContext";
 import { TiSocialGithubCircular } from "react-icons/ti";
+import { AiFillCloseCircle } from "react-icons/ai";
 
 const SearchUser = () => {
   const { userSearchMounted, setUserSearchMounted, setUsername } =
@@ -16,9 +17,11 @@ const SearchUser = () => {
 
   function changeUser(e) {
     e.preventDefault();
-    setUsername(searchInput);
-    setUserSearchMounted(!userSearchMounted);
-    setSearchInput("");
+    if (searchInput !== "") {
+      setUsername(searchInput);
+      setUserSearchMounted(!userSearchMounted);
+      setSearchInput("");
+    }
   }
 
   return (
@@ -38,6 +41,12 @@ const SearchUser = () => {
         placeholder="Search a Github User..."
         onChange={(e) => setSearchInput(e.target.value)}
       />
+      {userSearchMounted && (
+        <AiFillCloseCircle
+          className="searchbar__icon"
+          onClick={() => setUserSearchMounted(!userSearchMounted)}
+        />
+      )}
     </form>
   );
 };

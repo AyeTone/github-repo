@@ -1,5 +1,6 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { BiSearchAlt } from "react-icons/bi";
+import { AiFillCloseCircle } from "react-icons/ai";
 import { UserData } from "../../../context/userDataContext";
 
 const SearchRepo = () => {
@@ -28,6 +29,12 @@ const SearchRepo = () => {
         placeholder="Search for a repo..."
         onChange={(e) => setSearchRepo(e.target.value)}
       />
+      {repoSearchMounted && (
+        <AiFillCloseCircle
+          className="searchbar__icon"
+          onClick={() => setRepoSearchMounted(!repoSearchMounted)}
+        />
+      )}
     </form>
   );
 };

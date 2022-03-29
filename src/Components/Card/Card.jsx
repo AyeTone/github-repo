@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import moment from "moment";
 import CardBody from "./CardBody/CardBody";
 import CardFooter from "./CardFooter/CardFooter";
@@ -41,7 +41,7 @@ const Card = () => {
                 following={data.following}
               />
               <CardFooter
-                github={data.url}
+                github={data.html_url}
                 location={data.location}
                 twitter={data.twitter_username}
                 blog={data.blog}
@@ -50,7 +50,7 @@ const Card = () => {
           </>
         ) : (
           <div className="no__user">
-            <p>No madiens? Try Searching again.</p>
+            <p>'Tis a maidenless area. Try Jumping.</p>
             <img
               src="https://www.pcgamesn.com/wp-content/uploads/2022/02/elden-ring-pc-performance-issues-580x334.jpg"
               alt="Elden Ring"

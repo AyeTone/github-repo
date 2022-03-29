@@ -114,8 +114,14 @@
   }
 }
 
+/* No user */
+
 .no__user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
+  width: 100%;
 
   p {
     background-color: $innerCard;

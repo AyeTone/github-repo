@@ -1,7 +1,9 @@
 /* CONTAINS ALL SEARCHBARS' CSS */
+
 @use "../abstracts/variables" as *;
 @use "../util/breakpoints" as *;
 
+/* Default Icons */
 @mixin searchIcons {
   position: absolute;
   bottom: -15px;
@@ -13,6 +15,20 @@
 
   &:hover {
     color: $highlight;
+  }
+}
+
+/* Icons inside searchbar */
+@mixin icons {
+  position: absolute;
+  top: 8px;
+
+  color: $highlight;
+  font-size: $xlFont;
+  cursor: pointer;
+
+  &:hover {
+    color: darken($highlight, 20%);
   }
 }
 
@@ -49,16 +65,7 @@
   }
 
   &__icon {
-    position: absolute;
-    top: 8px;
-    left: 10px;
-    color: $highlight;
-    font-size: $xlFont;
-    cursor: pointer;
-
-    &:hover {
-      color: darken($highlight, 20%);
-    }
+    @include icons;
   }
 
   &__input {
