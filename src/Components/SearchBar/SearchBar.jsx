@@ -3,6 +3,7 @@ import { BiSearchAlt } from "react-icons/bi";
 import { TiSocialGithubCircular } from "react-icons/ti";
 import { UserData } from "../../context/userDataContext";
 import SearchRepo from "./SearchRepo/SearchRepo";
+import SearchUser from "./SearchUser/SearchUser";
 
 function useDelayUnmount(e, delayTime) {
   const [showDiv, setShowDiv] = useState(false);
@@ -21,25 +22,33 @@ function useDelayUnmount(e, delayTime) {
 const SearchBar = () => {
   const { isMounted, setIsMounted } = useContext(UserData);
   const showRepoSearch = useDelayUnmount(isMounted, 2000);
-
-  function toggleMounted() {
-    setIsMounted(!isMounted);
-  }
+  const [showUserSearch, setShowUserSearch] = useState(false);
 
   return (
     <div className="searchbar">
       <>
-        {!showRepoSearch && (
+        {!showRepoSearch && !showUserSearch && (
           <>
-            <TiSocialGithubCircular className="searchbar__userSearch" />
+            <TiSocialGithubCircular
+              className="searchbar__userSearch"
+              onClick={() => setShowUserSearch(!showUserSearch)}
+            />
             <BiSearchAlt
               className="searchbar__repoSearch"
-              onClick={() => toggleMounted()}
+              onClick={() => setIsMounted(!isMounted)}
             />
           </>
         )}
       </>
       <>{showRepoSearch && <SearchRepo />}</>
+      <>
+        {showUserSearch && (
+          <SearchUser
+            showUserSearch={showUserSearch}
+            setShowUserSearch={setShowUserSearch}
+          />
+        )}
+      </>
     </div>
   );
 };

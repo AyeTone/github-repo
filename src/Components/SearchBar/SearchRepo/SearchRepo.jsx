@@ -6,10 +6,6 @@ const SearchRepo = () => {
   const { isMounted, setIsMounted, searchRepo, setSearchRepo } =
     useContext(UserData);
 
-  function toggleMounted() {
-    setIsMounted(!isMounted);
-  }
-
   const mountedStyle = { animation: "repoIn 1900ms " };
   const unmountedStyle = {
     animation: "repoOut 2000ms",
@@ -23,7 +19,7 @@ const SearchRepo = () => {
     >
       <BiSearchAlt
         className="searchbar__icon"
-        onClick={() => toggleMounted()}
+        onClick={() => setIsMounted(!isMounted)}
       />
       <input
         value={searchRepo}
