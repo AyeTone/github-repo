@@ -4,25 +4,12 @@ import { TiSocialGithubCircular } from "react-icons/ti";
 import { UserData } from "../../context/userDataContext";
 import SearchRepo from "./SearchRepo/SearchRepo";
 import SearchUser from "./SearchUser/SearchUser";
-
-function useDelayUnmount(e, delayTime) {
-  const [showDiv, setShowDiv] = useState(false);
-  useEffect(() => {
-    let timeoutId;
-    if (e && !showDiv) {
-      setShowDiv(true);
-    } else if (!e && showDiv) {
-      timeoutId = setTimeout(() => setShowDiv(false), delayTime);
-    }
-    return () => clearTimeout(timeoutId);
-  }, [e, delayTime, showDiv]);
-  return showDiv;
-}
+import { useDelayRepoUnmount } from "./DelayUnmount";
 
 const SearchBar = () => {
-  const { isMounted, setIsMounted } = useContext(UserData);
-  const showRepoSearch = useDelayUnmount(isMounted, 2000);
-  const [showUserSearch, setShowUserSearch] = useState(false);
+  const { isMounted, setIsMounted, showUserSearch, setShowUserSearch } =
+    useContext(UserData);
+  const showRepoSearch = useDelayRepoUnmount(isMounted, 2000);
 
   return (
     <div className="searchbar">
