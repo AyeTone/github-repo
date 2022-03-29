@@ -19,7 +19,7 @@ const SearchBar = () => {
 
   return (
     <div className="searchbar">
-      <>
+      <div className="searchbar__icons">
         {!showRepoSearch && !showUserSearch && (
           <>
             <TiSocialGithubCircular
@@ -32,7 +32,7 @@ const SearchBar = () => {
             />
           </>
         )}
-      </>
+      </div>
       <>{showRepoSearch && <SearchRepo />}</>
       <>{showUserSearch && <SearchUser />}</>
     </div>

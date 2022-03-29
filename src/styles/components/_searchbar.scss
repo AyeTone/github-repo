@@ -4,11 +4,13 @@
 
 @mixin searchIcons {
   position: absolute;
+  bottom: -15px;
   color: darken($highlight, 20%);
   font-size: $xlFont;
   transition: 0.25s;
   cursor: pointer;
   animation: fadeIn 450ms ease-in;
+
   &:hover {
     color: $highlight;
   }
@@ -24,6 +26,10 @@
   @include breakpoint(tablet) {
     max-width: $tabletMW;
     margin-top: 40px;
+  }
+
+  &__icons {
+    padding-bottom: 45px;
   }
 
   &__userSearch {
