@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+/* delay repo searchbar unmount */
 export function useDelayRepoUnmount(repoSearch, delayTime) {
   const [showDiv, setShowDiv] = useState(false);
   useEffect(() => {
@@ -14,6 +15,7 @@ export function useDelayRepoUnmount(repoSearch, delayTime) {
   return showDiv;
 }
 
+/* delay user searchbar unmount */
 export function useDelayUserUnmount(userSearch, delayTime) {
   const [showSearch, setShowSearch] = useState(false);
   useEffect(() => {

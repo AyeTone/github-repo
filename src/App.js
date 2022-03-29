@@ -7,8 +7,8 @@ import { UserData } from "./context/userDataContext";
 function App() {
   const [data, setData] = useState([]);
   const [searchRepo, setSearchRepo] = useState("");
-  const [repoSearchMounted, setRepoSearchMounted] = useState(false);
   const [username, setUsername] = useState("Ayetone");
+  const [repoSearchMounted, setRepoSearchMounted] = useState(false);
   const [userSearchMounted, setUserSearchMounted] = useState(false);
 
   useEffect(() => {
