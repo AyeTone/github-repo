@@ -113,3 +113,16 @@
     }
   }
 }
+
+.no__user {
+  text-align: center;
+
+  p {
+    background-color: $innerCard;
+    padding: 10px 0;
+    border-radius: $baseBR;
+    font-family: $statsFont;
+    font-size: $lgFont;
+    margin-bottom: 20px;
+  }
+}

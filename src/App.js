@@ -8,7 +8,7 @@ function App() {
   const [data, setData] = useState([]);
   const [searchRepo, setSearchRepo] = useState("");
   const [repoSearchMounted, setRepoSearchMounted] = useState(false);
-  const [username, setUsername] = useState("A");
+  const [username, setUsername] = useState("Ayetone");
   const [userSearchMounted, setUserSearchMounted] = useState(false);
 
   useEffect(() => {

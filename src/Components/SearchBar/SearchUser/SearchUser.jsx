@@ -1,14 +1,14 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { UserData } from "../../../context/userDataContext";
 import { TiSocialGithubCircular } from "react-icons/ti";
 
 const SearchUser = () => {
-  const { userSearchMounted, setUserSearchMounted, username, setUsername } =
+  const { userSearchMounted, setUserSearchMounted, setUsername } =
     useContext(UserData);
 
-  const mountedStyle = { animation: "userIn 1900ms " };
+  const mountedStyle = { animation: "userIn 1.9s " };
   const unmountedStyle = {
-    animation: "userOut 2000ms",
+    animation: "userOut 2s",
     animationFillMode: "forwards",
   };
 
@@ -17,6 +17,7 @@ const SearchUser = () => {
   function changeUser(e) {
     e.preventDefault();
     setUsername(searchInput);
+    setUserSearchMounted(!userSearchMounted);
     setSearchInput("");
   }
 

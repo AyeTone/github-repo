@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { TiSocialGithubCircular } from "react-icons/ti";
 import { UserData } from "../../context/userDataContext";
