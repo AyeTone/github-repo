@@ -7,9 +7,13 @@ import SearchUser from "./SearchUser/SearchUser";
 import { useDelayRepoUnmount } from "./DelayUnmount";
 
 const SearchBar = () => {
-  const { isMounted, setIsMounted, showUserSearch, setShowUserSearch } =
-    useContext(UserData);
-  const showRepoSearch = useDelayRepoUnmount(isMounted, 2000);
+  const {
+    repoSearchMounted,
+    setRepoSearchMounted,
+    showUserSearch,
+    setShowUserSearch,
+  } = useContext(UserData);
+  const showRepoSearch = useDelayRepoUnmount(repoSearchMounted, 2000);
 
   return (
     <div className="searchbar">
@@ -22,7 +26,7 @@ const SearchBar = () => {
             />
             <BiSearchAlt
               className="searchbar__repoSearch"
-              onClick={() => setIsMounted(!isMounted)}
+              onClick={() => setRepoSearchMounted(!repoSearchMounted)}
             />
           </>
         )}

@@ -7,7 +7,7 @@ import { UserData } from "./context/userDataContext";
 function App() {
   const [data, setData] = useState([]);
   const [searchRepo, setSearchRepo] = useState("");
-  const [isMounted, setIsMounted] = useState(false);
+  const [repoSearchMounted, setRepoSearchMounted] = useState(false);
   const [username, setUsername] = useState("Ayetone");
   const [showUserSearch, setShowUserSearch] = useState(false);
 
@@ -24,8 +24,8 @@ function App() {
         setData,
         searchRepo,
         setSearchRepo,
-        isMounted,
-        setIsMounted,
+        repoSearchMounted,
+        setRepoSearchMounted,
         showUserSearch,
         setShowUserSearch,
       }}
@@ -35,7 +35,7 @@ function App() {
           <h1>Github Showcase</h1>
         </div>
         <SearchBar />
-        {isMounted ? (
+        {repoSearchMounted ? (
           <RepoList username={username} />
         ) : (
           <Card uesrname={username} />
