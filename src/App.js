@@ -8,14 +8,14 @@ function App() {
   const [data, setData] = useState([]);
   const [searchRepo, setSearchRepo] = useState("");
   const [repoSearchMounted, setRepoSearchMounted] = useState(false);
-  const [username, setUsername] = useState("Ayetone");
+  const [username, setUsername] = useState("A");
   const [userSearchMounted, setUserSearchMounted] = useState(false);
 
   useEffect(() => {
     fetch(`https://api.github.com/users/${username}`)
       .then((res) => res.json())
       .then((data) => setData(data));
-  }, []);
+  }, [username]);
 
   return (
     <UserData.Provider
@@ -24,6 +24,8 @@ function App() {
         setData,
         searchRepo,
         setSearchRepo,
+        username,
+        setUsername,
         repoSearchMounted,
         setRepoSearchMounted,
         userSearchMounted,
