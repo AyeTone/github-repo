@@ -8,8 +8,14 @@ const Card = ({ username }) => {
   const { data } = useContext(UserData);
 
   let name = data.login;
-  let date = new Date(`${data.updated_at}`);
+  let date = new Date(`${data.created_at}`);
   let fullDate = moment(date).format("MMMM D, Y");
+
+  const govName = () => {
+    if (data.name) {
+      return <span> aka {data.name}</span>;
+    }
+  };
 
   return (
     <div className="card">
@@ -17,17 +23,17 @@ const Card = ({ username }) => {
         <div className="card__avatar">
           <img src={data.avatar_url} alt={`${username} avatar`} />
           <h1 className="card__username">
-            {name} <span>aka {data.name}</span>
+            {name} {govName}
           </h1>
         </div>
         <div className="card__content">
           <div className="card__content__header">
             <h1 className="header__username">
-              {name} <span>aka {data.name}</span>
+              {name} {govName}
             </h1>
             <p className="header__active">
               {" "}
-              <span>Last active:</span> {fullDate}
+              <span>Joined:</span> {fullDate}
             </p>
           </div>
           <CardBody
