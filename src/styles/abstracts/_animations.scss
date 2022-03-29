@@ -1,4 +1,4 @@
-@keyframes animeIn {
+@keyframes repoIn {
   0% {
     opacity: 0.25;
     width: 0;
@@ -9,12 +9,13 @@
   }
 }
 
-@keyframes animeOut {
+@keyframes repoOut {
   0% {
     opacity: 1;
-    width: 85%;
+    width: 100%;
   }
   100% {
+    transform: rotate(0.1turn);
     opacity: 0;
     width: 0;
   }
