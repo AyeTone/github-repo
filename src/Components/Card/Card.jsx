@@ -11,11 +11,7 @@ const Card = () => {
   let date = new Date(`${data.created_at}`);
   let fullDate = moment(date).format("MMMM D, Y");
 
-  const govName = () => {
-    if (data.name) {
-      return <span> aka {data.name}</span>;
-    }
-  };
+  const govName = data.name;
 
   return (
     <div className="card">
@@ -25,13 +21,13 @@ const Card = () => {
             <div className="card__avatar">
               <img src={data.avatar_url} alt={`${username} avatar`} />
               <h1 className="card__username">
-                {name} {govName}
+                {name} {govName && <span>aka {govName} </span>}
               </h1>
             </div>
             <div className="card__content">
               <div className="card__content__header">
                 <h1 className="header__username">
-                  {name} {govName}
+                  {name} {govName && <span>aka {govName} </span>}
                 </h1>
                 <p className="header__active">
                   {" "}
